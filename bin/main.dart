@@ -10,5 +10,30 @@
 // The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7].
 // In this case, the max area of water (blue section) the container can contain is 49.
 
+import 'dart:math';
+
+maxWater(List <int> inputs){
+  List<List<int>> coordinates = [];
+  List<int> listOfAreas = [];
+  for(int i = 0; i< inputs.length; i++){
+    coordinates.add([i,inputs[i]]);
+  }
+  print(coordinates);
+  //return null;
+  for(int i =0; i<coordinates.length; i++){
+    List copy = List.from(coordinates);
+    List<int> temp = copy.removeAt(i);
+    for(List <int> list in copy){
+      int area = [temp[1],list[1]].reduce(min) * (temp[0] - list[0]).abs();
+      listOfAreas.add(area);
+    }
+  }
+  print (listOfAreas);
+  return listOfAreas.reduce(max);
+}
+
+
+
 main() {
+  print(maxWater([1,8,6,2,5,4,8,3,7]));
 }

@@ -12,13 +12,13 @@
 
 import 'dart:math';
 
-maxWater(List <int> inputs){
+int maxWater(List <int> inputs){
   List<List<int>> coordinates = [];
   List<int> listOfAreas = [];
   for(int i = 0; i< inputs.length; i++){
     coordinates.add([i,inputs[i]]);
   }
-  print(coordinates);
+  //print(coordinates);
   //return null;
   for(int i =0; i<coordinates.length; i++){
     List copy = List.from(coordinates);
@@ -28,11 +28,9 @@ maxWater(List <int> inputs){
       listOfAreas.add(area);
     }
   }
-  print (listOfAreas);
+  //print (listOfAreas);
   return listOfAreas.reduce(max);
 }
-
-
 
 main() {
   print(maxWater([1,8,6,2,5,4,8,3,7]));

@@ -19,14 +19,16 @@ int maxWater(List <int> inputs){
     coordinates.add([i,inputs[i]]);
   }
   //print(coordinates);
-  //return null;
+
   for(int i =0; i<coordinates.length; i++){
+
     List copy = List.from(coordinates);
     List<int> temp = copy.removeAt(i);
     for(List <int> list in copy){
       int area = [temp[1],list[1]].reduce(min) * (temp[0] - list[0]).abs();
       listOfAreas.add(area);
     }
+
   }
   //print (listOfAreas);
   return listOfAreas.reduce(max);
